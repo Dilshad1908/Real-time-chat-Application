@@ -18,18 +18,24 @@ const users={};     //empty object
 
 
 io.on('connection',(socket)=>{        // for new connection 
-    console.log('heena is connected')
+    // console.log('heena is connected')
     // All .on will take a function
     socket.on('new-user-joined', name=>{        //'new-user-joined' is a event you can choose any name of the event as your choice
         users[socket.id]=name;  // inside the object a key value is added //  (cP8xeNWulPedsCpWAAAD:name) not (id:name)   [socket.id] se use unique id mil jayegi
         socket.broadcast.emit('user-joined',name)
-        console.log('new user',name)
+        // console.log('new user',name)
         // console.log(users)
     })
-
+// for sending message
     socket.on('send', message=>{
         socket.broadcast.emit('receive',{message:message, name:users[socket.id]})
     })
+// for leaving chat
+    socket.on('disconnect',message=>{       //connection and disconnect ko change nahi kar sakte ye inbuilt socket.io ka hai 
+        socket.broadcast.emit('left',users[socket.id])      // users[socket.id] ye name hai
+        delete users[socket.id]
+    })
+
 })
 
 http.listen(port,()=>{

@@ -5,6 +5,12 @@
     width: 50px;
 }
 
+h1{
+    margin-top: 10px;
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
 .author{
     margin: 0;
     
@@ -12,10 +18,11 @@
 .container{
     max-width: 955px;
     /* background-color:#fff; */
-    border: 2px solid black;
-    border-radius: 10px;
+    border: 2px solid linear-gradient(rgb(456,50,102),rgb(198,576,543),rgb(40, 243, 21));
+    box-shadow:  5px 10px 5px -8px rgba(12, 228, 34, 0.751)  ;
+    border-radius: 20px;
     margin: auto;
-    height: 60vh;
+    height: 50vh;
     padding: 33px;
     overflow-y: auto;
     margin-bottom: 25px;
@@ -27,7 +34,7 @@
     max-width: 70%; 
     padding: 5px;
     margin-bottom: 5px;
-    border-radius: 15px;
+    border-radius: 10px;
     
 }
 
@@ -43,6 +50,7 @@
     background-color: rgba(127, 255, 212, 0.916);
 }
 
+
 #send-container{
 display: block;
 margin: auto;
@@ -52,20 +60,51 @@ max-height: 985;
 
 #messageInp{
     width: 80%;
-    border: 2px solid black;
-    border-radius: 6px;
+    border: 2px solid white;
+    border-radius: 15px;
     height: 30px;
-}
+    padding: 3px 5px;
 
+}
+.send input:focus{
+    outline: none;
+}
 .btn{
 cursor: pointer;
 padding: 5px 10px;
-height: 30px;
-border: 2px solid black;
-border-radius: 6px;
+height: 40px;
+width: 40px;
+border: 2px solid white;
+border-radius:50%;
+color: rgb(246, 58, 58);
 
 }
 body{
-    background-image: linear-gradient(rgb(456,50,102),rgb(198,576,543),rgb(254,25,146));
+    background-image: linear-gradient(rgb(456,50,102),rgb(198,576,543),rgb(40, 243, 21));
     height: 100vh;
 }
+
+/* //// Responsive //// */
+
+
+
+@media(max-width:300px){
+    h1{
+        font-size: 18px;
+    }
+    .container{
+        height: 60vh;
+        margin-bottom: 10px;
+    }
+    #messageInp{
+        width: 70%;
+    }
+}
+
+@media (min-width:301px) and (max-width:452px){
+    h1{
+        font-size: 20px;
+    }
+}
+
+
